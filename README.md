@@ -25,6 +25,12 @@ genereren is gebruik gemaakt van een intern software project, gebaseerd op Java,
 van diverse libraries voor het genereren van synthetische data. De uitkomsten hiervan zijn in deze
 repo toegevoegd. Vanuit deze repository wordt de testdata (gescript) in de testomgeving geladen.
 
+Per 'silo' bestaat de (te verwachten) testdata uit:
+
+- instantie data -> 'de' testdata (in `.ttl` of `.trig` format)
+- authorization configuration -> de configuratie / instantie data voor de autorisaties voor
+  betreffende testdata set (in `.ttl` format)
+
 De **testomgeving** is een verspreide omgeving om een federatieve bevraging te beproeven en ook de
 autorisatie op een federatieve wijze te kunnen aantonen. Het Kadaster is verantwoordelijk voor de
 bijhouding van de BRK en is daarom een logische partij om de BRK testdata te hosten. Voor de andere
