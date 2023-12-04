@@ -17,7 +17,7 @@ gekoppeld zijn aan een geografische locatie (gebied), waar de (zakelijke) rechte
 aan mensen of bedrijven, waarbij de bedrijven uiteraard weer te relateren zijn aan mensen en ook
 eventueel een ANBI instelling kunnen betreffen.
 
-// TODO informatiemodel plaatje toevoegen
+De testdata worden gegenereerd volgens een zelf gedefinieerd informatiemodel. Dit informatiemodel wordt [hier](https://data.labs.kadaster.nl/lock-unlock/gesloten-knowledge-graph/schema) gevisualiseerd en is [hier](https://data.labs.kadaster.nl/lock-unlock/gesloten-knowledge-graph/download.trig.gz?graph=https%3A%2F%2Fdata.labs.kadaster.nl%2Flock-unlock%2Fgesloten-knowledge-graph%2Fgraphs%2Finformatie-model) te downloaden.
 
 De **testdata** volgt de testopstelling. Het is synthetische (gegenereerde) testdata die gekoppeld
 is aan bestaande geografische percelen om deze in een kaartje te kunnen weergeven. Voor het
