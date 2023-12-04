@@ -32,6 +32,13 @@ data is dat juist niet logisch en daarom wordt deze in de Digilab omgeving gehos
 
 ![Lock-Unlock Testdata Deployment](images/lock-unlock-testdata-deployment.jpg)
 
+Voor het afdwingen van de autorisaties wordt gebruik gemaakt van een eigen implementatie van een
+[Secured SPARQL Endpoint](https://github.com/kadaster-labs/secured-sparql-endpoint). Dit is een
+implementatie van de [Authorization Ontology](#todo), een voorbeeld van de [Authorization
+Configuration](#todo) en gebaseerd op de [Apache Jena
+Core](https://github.com/apache/jena/tree/main/jena-core) (ook gebruikt in
+[Fuseki](https://github.com/apache/jena/tree/main/jena-fuseki2)).
+
 ## License
 
 Om hergebruik en doorontwikkeling maximaal mogelijk te maken, is dit project gelicenseerd onder
