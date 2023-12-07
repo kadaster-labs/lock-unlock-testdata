@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fuseki-dpl
+spec:
+  selector:
+    matchLabels:
+      app: fuseki-dpl
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: fuseki-dpl
+    spec:
+      containers:
+      - name: fuseki-dpl
+        image: ghcr.io/lock-unlock-testdata/fuseki:4.9.0
+        args: [ "--tdb2", "--update", "--loc", "/databases/", "/ds" ]
+        ports:
+        - containerPort: 3030
+          name: http
+        volumeMounts:
+        - name: fuseki-db-vol
+          mountPath: /logs
+        - name: fuseki-db-vol
+          mountPath: /databases
+      volumes:
+        - name: fuseki-db-vol
+#         resources:
+#           requests:
+#             cpu: 10m
+#             memory: 10Mi
+#           limits:
+#             cpu: 20m
+#             memory: 20Mi
+#         livenessProbe:
+#           httpGet:
+#             path: /?liveness
+#             port: http
+#         readinessProbe:
+#           httpGet:
+#             path: /?readiness
+#             port: http
