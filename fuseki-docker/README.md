@@ -18,5 +18,5 @@ $ docker pull ghcr.io/lock-unlock-testdata/fuseki:0.1
 Local build:
 
 ```bash
-$ docker build --build-arg JENA_VERSION=4.10.0 -t lock-unlock-testdata/fuseki:4.9.0 .
+$ docker build --build-arg JENA_VERSION=4.10.0 -t lock-unlock-testdata/fuseki:4.10.0 .
 ```

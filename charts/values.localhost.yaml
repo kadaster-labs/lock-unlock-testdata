@@ -1,0 +1,7 @@
+
+fuseki:
+  image: lock-unlock-testdata/fuseki
+  # tag: 4.10.0
+
+ingress:
+  host: fuseki.127.0.0.1.nip.io

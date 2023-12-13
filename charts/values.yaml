@@ -1,0 +1,9 @@
+
+fuseki:
+  image: ghcr.io/lock-unlock-testdata/fuseki
+  # image: lock-unlock-testdata/fuseki
+  tag: 4.10.0
+
+ingress:
+  host: tbd
+  # host: fuseki.127.0.0.1.nip.io
