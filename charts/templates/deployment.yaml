@@ -1,32 +1,46 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fuseki-dpl
-  namespace: lock-unlock
+  name: fuseki
 spec:
   selector:
     matchLabels:
-      app: fuseki-dpl
+      app: fuseki
   replicas: 1
   template:
     metadata:
       labels:
-        app: fuseki-dpl
+        app: fuseki
     spec:
+      initContainers:
+      - name: prep-tdb2
+        image: "lock-unlock-dataloader:latest"
+        imagePullPolicy: Never
+        args:
+        - ./prep_tdb2.sh
+        env:
+        - name: FILE_URL
+          value: "{{ .Values.fuseki.dataset.file_url }}"
+        volumeMounts:
+        - name: database
+          mountPath: /database
       containers:
-      - name: fuseki-dpl
+      - name: fuseki-server
         image: "{{ .Values.fuseki.image }}:{{ .Values.fuseki.tag }}"
-        args: [ "--tdb2", "--update", "--loc", "/databases/", "/" ]
+        args: [ "--tdb2", "--loc", "/database", "/" ]
         ports:
         - containerPort: 3030
           name: http
         volumeMounts:
-        - name: fuseki-db-vol
+        - name: logs
           mountPath: /logs
-        - name: fuseki-db-vol
-          mountPath: /databases
+        - name: database
+          mountPath: /database
       volumes:
-        - name: fuseki-db-vol
+      - name: database
+        emptyDir: {}
+      - name: logs
+        emptyDir: {}
 #         resources:
 #           requests:
 #             cpu: 10m
