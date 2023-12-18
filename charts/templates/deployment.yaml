@@ -27,7 +27,7 @@ spec:
       containers:
       - name: fuseki-server
         image: "{{ .Values.fuseki.image }}:{{ .Values.fuseki.tag }}"
-        args: [ "--tdb2", "--loc", "/database", "/" ]
+        args: [ "--tdb2", "--loc", "/database", "/db" ]
         ports:
         - containerPort: 3030
           name: http

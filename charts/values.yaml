@@ -1,7 +1,6 @@
 
 fuseki:
   image: ghcr.io/lock-unlock-testdata/fuseki
-  # image: lock-unlock-testdata/fuseki
   tag: 4.10.0
   
   dataset:

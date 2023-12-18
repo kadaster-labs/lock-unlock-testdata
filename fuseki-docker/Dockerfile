@@ -24,7 +24,8 @@ ARG JENA_VERSION=""
 
 # Internal, passed between stages.
 ARG FUSEKI_DIR=/fuseki
-ARG FUSEKI_JAR=jena-fuseki-server-${JENA_VERSION}.jar
+ARG FUSEKI_JAR=jena-fuseki-fulljar-${JENA_VERSION}.jar
+ARG FUSEKI_WEBAPP_WAR=jena-fuseki-war-${JENA_VERSION}.war
 ARG JAVA_MINIMAL=/opt/java-minimal
 
 ## ---- Stage: Download and build java.
@@ -34,14 +35,16 @@ ARG JAVA_MINIMAL
 ARG JENA_VERSION
 ARG FUSEKI_DIR
 ARG FUSEKI_JAR
+ARG FUSEKI_WEBAPP_WAR
 ARG REPO=https://repo1.maven.org/maven2
-ARG JAR_URL=${REPO}/org/apache/jena/jena-fuseki-server/${JENA_VERSION}/${FUSEKI_JAR}
+ARG JAR_URL=${REPO}/org/apache/jena/jena-fuseki-fulljar/${JENA_VERSION}/${FUSEKI_JAR}
+ARG WAR_URL=${REPO}/org/apache/jena/jena-fuseki-war/${JENA_VERSION}/${FUSEKI_WEBAPP_WAR}
 
 RUN [ "${JENA_VERSION}" != "" ] || { echo -e '\n**** Set JENA_VERSION ****\n' ; exit 1 ; }
 RUN echo && echo "==== Docker build for Apache Jena Fuseki ${JENA_VERSION} ====" && echo
 
 # Alpine: For objcopy used in jlink
-RUN apk add --no-cache curl binutils
+RUN apk add --no-cache curl binutils tar
 
 ## -- Fuseki installed and runs in /fuseki.
 WORKDIR $FUSEKI_DIR
@@ -52,6 +55,14 @@ RUN chmod a+x download.sh
 
 # Download, with check of the SHA1 checksum.
 RUN ./download.sh --chksum sha1 "$JAR_URL"
+RUN ./download.sh --chksum sha1 "$WAR_URL"
+
+## unpack war to webapp
+RUN mkdir webapp
+RUN mv ${FUSEKI_WEBAPP_WAR} webapp/${FUSEKI_WEBAPP_WAR}
+WORKDIR ${FUSEKI_DIR}/webapp
+RUN jar xf ${FUSEKI_WEBAPP_WAR}
+WORKDIR $FUSEKI_DIR
 
 ## -- Alternatives to download : copy already downloaded.
 ## COPY ${FUSEKI_JAR} .
