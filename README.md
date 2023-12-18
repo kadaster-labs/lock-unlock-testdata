@@ -7,6 +7,19 @@
 > '_lock the data and unlock the potential_'; make closed data available to enable research and
 > analysis on this data _with_ valid authorization rules in place.
 
+Other relevant repositories are:
+
+- [Lock-Unlock Onthologies](https://github.com/kadaster-labs/lock-unlock-onthologies)
+  - Authorization Onthology (in research)
+  - Logging Onthology (in research)
+- (this repo) [Lock-Unlock Testdata](https://github.com/kadaster-labs/lock-unlock-testdata)
+- [Secured SPARQL Endpoint Sub Graph](https://github.com/kadaster-labs/secured-sparql-endpoint)
+  (based on Apache Jena & SpringBoot)
+- [Secured SPARQL Endpoint Rewrite (SPARQL
+  Query)](https://github.com/kadaster-labs/secured-sparql-endpoint-rewrite) (based on Fuseki)
+
+---
+
 Dit open source project bevat de testdata van het [Lock-Unlock
 Project](https://labs.kadaster.nl/cases/lockunlock). In dit project onderzoeken en beproeven wij:
 '_lock de data, unlock het pontentieel_'; hoe kunnen we gesloten data beschikbaar maken _met_ behoud
@@ -17,7 +30,11 @@ gekoppeld zijn aan een geografische locatie (gebied), waar de (zakelijke) rechte
 aan mensen of bedrijven, waarbij de bedrijven uiteraard weer te relateren zijn aan mensen en ook
 eventueel een ANBI instelling kunnen betreffen.
 
-De testdata worden gegenereerd volgens een zelf gedefinieerd informatiemodel. Dit informatiemodel wordt [hier](https://data.labs.kadaster.nl/lock-unlock/gesloten-knowledge-graph/schema) gevisualiseerd en is [hier](https://data.labs.kadaster.nl/lock-unlock/gesloten-knowledge-graph/download.trig.gz?graph=https%3A%2F%2Fdata.labs.kadaster.nl%2Flock-unlock%2Fgesloten-knowledge-graph%2Fgraphs%2Finformatie-model) te downloaden.
+De testdata worden gegenereerd volgens een zelf gedefinieerd informatiemodel. Dit informatiemodel
+wordt [hier](https://data.labs.kadaster.nl/lock-unlock/gesloten-knowledge-graph/schema)
+gevisualiseerd en is
+[hier](https://data.labs.kadaster.nl/lock-unlock/gesloten-knowledge-graph/download.trig.gz?graph=https%3A%2F%2Fdata.labs.kadaster.nl%2Flock-unlock%2Fgesloten-knowledge-graph%2Fgraphs%2Finformatie-model)
+te downloaden.
 
 De **testdata** volgt de testopstelling. Het is synthetische (gegenereerde) testdata die gekoppeld
 is aan bestaande geografische percelen om deze in een kaartje te kunnen weergeven. Voor het
