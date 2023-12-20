@@ -13,14 +13,15 @@ fi
 
 # ----------------- Download  -----------------
 echo "Going to download $FILE_URL"
-curl -O $FILE_URL
+curl $FILE_URL -o $OUT_DIR/$FILENAME
 
 # -----------------  Unpack   -----------------
 if [[ "$FILENAME" == *.gz ]]; then
     echo "Unzipping dataset"
-    gzip -d $FILENAME
+    gzip -d $OUT_DIR/$FILENAME
     FILENAME=$(basename "$FILENAME" .gz)
 fi
 
 # ----------------- Load data -----------------
-/jena/bin/tdb2.tdbloader --loc $OUT_DIR $FILENAME
+/jena/bin/tdb2.tdbloader --loc $OUT_DIR $OUT_DIR/$FILENAME
+rm $OUT_DIR/$FILENAME
