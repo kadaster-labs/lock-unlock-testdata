@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fuseki
+spec:
+  selector:
+    matchLabels:
+      app: fuseki
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: fuseki
+    spec:
+      initContainers:
+      - name: prep-tdb2
+        image: "lock-unlock-dataloader:latest"
+        imagePullPolicy: Never
+        args:
+        - ./prep_tdb2.sh
+        env:
+        - name: FILE_URL
+          value: "{{ .Values.fuseki.dataset.file_url }}"
+        volumeMounts:
+        - name: database
+          mountPath: /database
+      containers:
+      - name: fuseki-server
+        image: "{{ .Values.fuseki.image }}:{{ .Values.fuseki.tag }}"
+        args: [ "--tdb2", "--loc", "/database", "/db" ]
+        ports:
+        - containerPort: 3030
+          name: http
+        volumeMounts:
+        - name: logs
+          mountPath: /logs
+        - name: database
+          mountPath: /database
+      volumes:
+      - name: database
+        emptyDir: {}
+      - name: logs
+        emptyDir: {}
+#         resources:
+#           requests:
+#             cpu: 10m
+#             memory: 10Mi
+#           limits:
+#             cpu: 20m
+#             memory: 20Mi
+#         livenessProbe:
+#           httpGet:
+#             path: /?liveness
+#             port: http
+#         readinessProbe:
+#           httpGet:
+#             path: /?readiness
+#             port: http

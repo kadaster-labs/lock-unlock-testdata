@@ -1,0 +1,13 @@
+apiVersion: v2
+appVersion: 0.0.1
+description: Helm charts for the Fuseki deployment of Lock-Unlock
+home: https://labs.kadaster.nl/cases/lockunlock
+keywords:
+  - lock-unlock
+  - digilab
+  - kadaster-labs
+name: lock-unlock-fuseki
+sources:
+  - https://github.com/kadaster-labs/lock-unlock-testdata-fuseki
+type: application
+version: 0.0.1
