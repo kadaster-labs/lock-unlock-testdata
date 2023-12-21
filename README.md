@@ -7,7 +7,7 @@
 > '_lock the data and unlock the potential_'; make closed data available to enable research and
 > analysis on this data _with_ valid authorization rules in place.
 
-Other relevant repositories are:
+Other relevant repositories of the [Lock-Unlock Project](https://labs.kadaster.nl/cases/lockunlock) are:
 
 - [Lock-Unlock Onthologies](https://github.com/kadaster-labs/lock-unlock-onthologies)
   - Authorization Onthology (in research)
@@ -17,6 +17,7 @@ Other relevant repositories are:
   (based on Apache Jena & SpringBoot)
 - [Secured SPARQL Endpoint Rewrite (SPARQL
   Query)](https://github.com/kadaster-labs/secured-sparql-endpoint-rewrite) (based on Fuseki)
+- [Lock-Unlock Helm Charts](https://github.com/kadaster-labs/lock-unlock-helm-charts)
 
 ---
 
