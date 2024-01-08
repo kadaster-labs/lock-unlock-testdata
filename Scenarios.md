@@ -21,8 +21,8 @@ select
 
 ```sparql
 select 
-# TODO```
-
+# TODO
+```
 
 ## Uitwerking
 
@@ -48,7 +48,7 @@ select
 # TODO
 ```
 
-**Named sub graph:** [TODO]
+**Named sub graph:** [Sub graph 'anoniem'](#sub-graph-anoniem)
 
 ### Persona Woningcorperatie
 
@@ -96,4 +96,4 @@ select
 # TODO
 ```
 
-**Named sub graph:** [TODO]
+**Named sub graph:** [Sub graph 'Zeewolde'](#sub-graph-zeewolde)
