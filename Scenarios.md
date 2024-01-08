@@ -12,6 +12,18 @@ Hieronder volgen de persona's, de scenario's van wat zij willen vragen, de SPARQ
 
 ### Sub graph 'anoniem'
 
+```sparql
+select 
+# TODO
+```
+
+### Sub graph 'Zeewolde'
+
+```sparql
+select 
+# TODO```
+
+
 ## Uitwerking
 
 ### Persona Anomieme gebruiker
