@@ -8,25 +8,14 @@ Hieronder volgen de persona's, de scenario's van wat zij willen vragen, de SPARQ
 - **rewrite** implementatie gaat uit van het hetschrijven (rewrite) van de SPARQL query; deze staat per scenario uitgeschreven tbv het kunnen implementeren
 - **sub graph** implementatie gaat uit van een sub graph per persona van wat hij/zij mag; volgens kunnen de originele SPARQL queries uitgevoerd worden
 
-## Named sub graphs
-
-### Sub graph 'anoniem'
-
-```sparql
-select 
-# TODO
-```
-
-### Sub graph 'Zeewolde'
-
-```sparql
-select 
-# TODO
-```
-
-## Uitwerking
-
 ### Persona Anomieme gebruiker
+
+#### Sub graph
+
+```sparql
+select 
+# TODO
+```
 
 #### Scenario: Wat is de oudste kerk in Zeewolde?
 
@@ -48,9 +37,9 @@ select
 # TODO
 ```
 
-**Named sub graph:** [Sub graph 'anoniem'](#sub-graph-anoniem)
-
 ### Persona Woningcorperatie
+
+**Limited sub graph:** [TODO]
 
 #### Scenario: Welk eigendom hebben wij in bezit?
 
@@ -72,9 +61,15 @@ select
 # TODO
 ```
 
-**Named sub graph:** [TODO]
 
 ### Persona Gemeente Zeewolde
+
+#### Sub graph
+
+```sparql
+select 
+# TODO
+```
 
 #### Scenario: Welke organisaties hebben eigendom in Zeewolde?
 
@@ -96,4 +91,3 @@ select
 # TODO
 ```
 
-**Named sub graph:** [Sub graph 'Zeewolde'](#sub-graph-zeewolde)
