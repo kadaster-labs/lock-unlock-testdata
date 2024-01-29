@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ -z "$FILE_URL" ]; then
     echo "Error: Environment variable FILE_URL is not set or is empty" >&2
@@ -19,9 +19,20 @@ curl $FILE_URL -o $OUT_DIR/$FILENAME
 if [[ "$FILENAME" == *.gz ]]; then
     echo "Unzipping dataset"
     gzip -d $OUT_DIR/$FILENAME
-    FILENAME=$(basename "$FILENAME" .gz)
+    FILENAME=$OUT_DIR/$(basename "$FILENAME" .gz)
+fi
+
+
+if [[ "$FILENAME" == *.zip ]]; then
+    value_list_files() {
+        ls $OUT_DIR | grep .trig | xargs printf $OUT_DIR'/%s '
+    }
+    echo "Unzipping dataset"
+    unzip $OUT_DIR/$FILENAME -d $OUT_DIR
+    FILENAME=$(value_list_files)
 fi
 
 # ----------------- Load data -----------------
-/jena/bin/tdb2.tdbloader --loc $OUT_DIR $OUT_DIR/$FILENAME
-rm $OUT_DIR/$FILENAME
+echo "Loading: $FILENAME"
+/jena/bin/tdb2.tdbloader --loc $OUT_DIR $FILENAME
+# rm $OUT_DIR/$FILENAME
