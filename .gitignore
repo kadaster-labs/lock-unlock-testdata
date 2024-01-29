@@ -1,4 +1,3 @@
 database
-testdata-anbi/auth.trig
-testdata-anbi/users.trig
 *.trig
+*.ttl
