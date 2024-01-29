@@ -35,4 +35,4 @@ fi
 # ----------------- Load data -----------------
 echo "Loading: $FILENAME"
 /jena/bin/tdb2.tdbloader --loc $OUT_DIR $FILENAME
-# rm $OUT_DIR/$FILENAME
+rm $OUT_DIR/$FILENAME
